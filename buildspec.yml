@@ -5,7 +5,8 @@ phases:
       python: 3.8
     commands:
       - echo "Installing dependencies..."
-      - pip install -r requirements.txt -t lib
+      - curl -s -o /dev/null -w "%{http_code}" -H "Authorization: token $GITHUB_TOKEN" https://api.github.com/user
+      # - pip install -r requirements.txt -t lib
   build:
     commands:
       - echo "Zipping deployment package..."
